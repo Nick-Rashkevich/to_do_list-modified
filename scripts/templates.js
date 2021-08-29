@@ -48,7 +48,7 @@ function modal() {
 function header(){
     return `<div class="header">
     <div class="header__container max-w-full h-24 flex justify-around items-center bg-gradient-to-r from-green-200 via-indigo-400">
-        <div class="header__title text-2xl  font-bold leading-7 text-gray-600 sm:text-3xl sm:truncate">
+        <div id="header__title" class="text-2xl  font-bold leading-7 text-gray-600 sm:text-3xl sm:truncate">
         <h2>TO DO LIST</h2></div>
         <div class="header__button">
             <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">

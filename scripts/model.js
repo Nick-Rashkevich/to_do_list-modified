@@ -1,27 +1,29 @@
-const todos = 
-{
-    title: 'Загаловок дела N1',
-    text: 'Подробное описание задачи, которое может состоять из некоторого количества слов.',
-    time: '14:00',
-    isDone: true,
-    id: '0'
-}
+import { modal } from "./templates.js";
+import { render } from "./view.js";
 
- const model = {   
-    data: [],
-    get: function(){
-        if(localStorage.getItem('todos')){
-            model.data = JSON.parse(localStorage.getItem('todos'))
-        }
+// MODEL====================================================>
+export const model = {
+    todos: [
+        {
+        title: 'заголовок',
+        text: 'текст',
+        time: 'время',
+        id: 1, 
     },
-    set: function(value){
-        model.data.push(value)
-        localStorage.setItem('todos', JSON.stringify(model.data))
+    {
+        title: 'заголовок_1',
+        text: 'текст_1',
+        time: 'время_1',
+        id: 2, 
+    },
+    ],
+
+    getLocalStorage: function(){
+        model.todos = JSON.parse(localStorage.getItem('todos'))
     },
 
+    setLocalStorage: function(){
+        localStorage.setItem('todos', JSON.stringify(model.todos))
+    }
 }
-export {todos, model}
-
-console.log(model.data);
-
 

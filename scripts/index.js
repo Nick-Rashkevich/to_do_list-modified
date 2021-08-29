@@ -1,18 +1,21 @@
-import { view } from './view.js';
-import { model, todos } from './model.js';
-import { controller } from './controller.js';
-import { card, modal } from './templates.js'
+import { model } from "./model.js"
+// import { createCard } from "./templates.js"
+import { initListeners, printApp, render } from "./view.js"
 
-//DOM
-const root = document.querySelector('#root')
+// ROOT====================================================>
+const root = document.getElementById('root')
 
+// APP====================================================>
 
-//APP
 function app(){
-    view.init(root)
-    view.openModal()
-    
+    model.setLocalStorage()
+    // 
+    model.getLocalStorage()
+    printApp()
+    initListeners()
+    render()
 }
 
 app()
 
+console.log(model.todos);

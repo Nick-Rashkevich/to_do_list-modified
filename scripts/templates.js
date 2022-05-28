@@ -6,10 +6,7 @@ function header(){
     return `
     <header id="header" class="p-5 bg-gradient-to-r from-green-200 via-indigo-400 to-green-200" >
     <h1 class="mx-auto text-2xl font-bold leading-7 text-gray-600 sm:text-3xl sm:truncate">Todo List: <strong id="todo-counter">${1}</strong></h1>
-    <div id="task__counter__container" class="flex p-2 justify-around">
-        <p class="italic text-xl">Completed task: <strong id="copmleted-counter">${2}</strong></p>
-        <p class="italic text-xl">In progress: <strong id='progress-counter'>${3}</strong></p>
-    </div>
+
     <div id="button__container" class="mt-4 flex justify-around">
         <button id="add-todo" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">Add</button>
         <button id="delete-last-todo" type="button" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">Delete last task</button>
@@ -23,8 +20,13 @@ function header(){
 // to-do body HTML
 function todoList(){
     return `
+    <div id="task__counter__container" class="flex p-2 justify-around">
+
+    <p class="italic text-xl">In progress: <strong id='progress-counter'>${3}</strong></p>
+    </div>
         <div id="todo-list"></div>
     `
+    //    <p class="italic text-xl">Completed task: <strong id="copmleted-counter">${model.todos.length}</strong></p>
 }
 
 // todo card HTML
@@ -37,16 +39,15 @@ function createCard(obj) {
 
   card.className = 'flex flex-col w-80 h-48 bg-indigo-300 m-auto mt-4 p-2 shadow-lg rounded-lg text-justify'
   cardTitle.className = 'p-2 text-2xl overflow-hidden'
-  cardText.className = 'p-2 pt-2 h-full overflow-hidden'
+  cardText.className = 'overflow-hidden'
   cardTime.className = 'p-2 italic'
-  cardBtn.className = 'px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700'
+  cardBtn.className = 'btn-delete-card px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700'
 
   cardTitle.textContent = obj.title
   cardText.textContent = obj.text
   cardTime.textContent = obj.time
   cardBtn.textContent = 'DELETE'
-  cardBtn.id = 'btn-delete-card'
-  
+  cardBtn.id = obj.id
 
   card.append(cardTitle, cardText, cardTime, cardBtn)
   document.getElementById('todo-list').append(card)

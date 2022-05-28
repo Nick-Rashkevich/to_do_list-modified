@@ -21,9 +21,18 @@ function initListeners(){
     // modal btn OK
     document.getElementById('modal__btn_ok').addEventListener('click', controller.closeModal)
     document.getElementById('modal__btn_ok').addEventListener('click', controller.getUserData)
-    // document.getElementById('btn-delete-card').addEventListener('click', controller.deleteTodo)
+    
+    // document.getElementByClassName('btn-delete-card').addEventListener('click', controller.deleteTodo)
     
 }
+
+// function initDeleteButtonListener(){
+// let elem=document.getElementById('btn-delete-card')//.addEventListener('click', controller.deleteTodo)
+//     elem.map((el)=>el.addEventListener('click', controller.deleteTodo))
+
+// // console.log(Array.from(elem).map((element)=>element.id));
+
+// }
 
 
 function printApp(){
@@ -35,10 +44,29 @@ function printApp(){
 // доработанный рендер
 function render(){
     let ren = document.getElementById('todo-list')
+
+    // счётчик дел
+    let progressCounter = document.getElementById('progress-counter')
+    progressCounter.innerText = model.todos.length
+   
     while (ren.firstChild) {
         ren.removeChild(ren.firstChild)
     }
-    model.todos.map((todo) => createCard(todo)).join('')
+
+    model.todos.map((todo) => createCard(todo))
+
+    // let buttonElements = document.getElementsByClassName('btn-delete-card')
+    // buttonElements.map(element => {
+    //     element.addEventListener('click', controller.deleteTodo)
+    // });
+
+    //повесим слушатель удаления кнопки 
+    let btnCollection = document.getElementsByClassName('btn-delete-card')
+
+    for (let i = 0; i < btnCollection.length; i++) {
+        btnCollection.item(i).addEventListener('click', controller.deleteTodo)
+    }
+
 }
 
 export { initListeners, printApp, render}

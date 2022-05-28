@@ -4,17 +4,22 @@ import { model } from "./model.js"
 import {render} from "./view.js"
 
 export const controller = {
-    deleteTodo: function(){
+
+    deleteTodo: function(button){
         
-        model.setLocalStorage()
+        let withoutDeletedTodos = model.todos.filter((item) => item.id != button.target.id)
+        model.todos = withoutDeletedTodos
+        
         render()
     },
-    completeTodo: function(){
+    
+    completeTodo: function()
+    {
         
     },
 
-    addTodo: function(){
-        
+    addTodo: function()
+    {
         model.setLocalStorage()
         model.getLocalStorage()
         render()
@@ -37,8 +42,8 @@ export const controller = {
         let userDataObj = {
         title: document.getElementById('modal__input_title').value,
         text: document.getElementById('modal__input_description').value,
-        time: '16:00', //need use new Date
-        // id: ___
+        time: [new Date().getFullYear(), new Date().getMonth(), new Date().getDay()].join('-'), //need use new Date
+        id: model.counter + 1,
         }
         model.todos.push(userDataObj)
         model.setLocalStorage()

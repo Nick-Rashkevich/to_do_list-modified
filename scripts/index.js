@@ -12,10 +12,13 @@ function app(){
     // 
     model.getLocalStorage()
     printApp()
-    initListeners()
     render()
+    initListeners()
+
 }
 
 app()
+// console.log(document.getElementsByClassName('btn-delete-card'));
+
 
 console.log(model.todos);

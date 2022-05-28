@@ -30,7 +30,7 @@ export const model = {
     },
 
     setLocalStorage: function(todos = model.todos){
-        localStorage.setItem('todos', JSON.stringify(todos))
+        localStorage.setItem('todos', JSON.stringify(model.todos))
         model.counter++
     }
 }

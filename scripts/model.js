@@ -3,26 +3,21 @@ import { render } from "./view.js";
 
 // MODEL====================================================>
 export const model = {
-    counter: 3, //счётчик для ID 
+    counter: 2, //счётчик для ID 
     todos: [
         {
-        title: 'заголовок',
-        text: 'текст',
-        time: 'время',
+        title: 'заголовок 1',
+        text: 'текст 1',
+        time: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()].join('-'),
         id: '1', 
     },
     {
-        title: 'заголовок_1',
-        text: 'текст_1',
-        time: 'время_1',
+        title: 'заголовок 2',
+        text: 'текст 2',
+        time: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()].join('-'),
         id: '2', 
     },
-    {
-        title: 'заголaewsfовок_1',
-        text: 'текст_awef1',
-        time: 'времweafsdя_1',
-        id: '3', 
-    },
+
     ],
 
     getLocalStorage: function(){

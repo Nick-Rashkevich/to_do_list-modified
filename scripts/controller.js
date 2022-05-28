@@ -13,10 +13,10 @@ export const controller = {
         render()
     },
     
-    completeTodo: function()
-    {
+    // completeTodo: function()
+    // {
         
-    },
+    // },
 
     addTodo: function()
     {
@@ -42,8 +42,8 @@ export const controller = {
         let userDataObj = {
         title: document.getElementById('modal__input_title').value,
         text: document.getElementById('modal__input_description').value,
-        time: [new Date().getFullYear(), new Date().getMonth(), new Date().getDay()].join('-'), //need use new Date
-        id: model.counter + 1,
+        time: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()].join('-'), //need use new Date
+        id: model.counter,
         }
         model.todos.push(userDataObj)
         model.setLocalStorage()

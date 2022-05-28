@@ -8,7 +8,7 @@ import {model,} from './model.js';
 
 function initListeners(){
     // btn add todo
-    document.getElementById('add-todo').addEventListener('click', controller.addTodo)
+    // document.getElementById('add-todo').addEventListener('click', controller.addTodo)
     document.getElementById('add-todo').addEventListener('click', controller.openModal)
 
     // btn delete last task
@@ -22,17 +22,8 @@ function initListeners(){
     document.getElementById('modal__btn_ok').addEventListener('click', controller.closeModal)
     document.getElementById('modal__btn_ok').addEventListener('click', controller.getUserData)
     
-    // document.getElementByClassName('btn-delete-card').addEventListener('click', controller.deleteTodo)
     
 }
-
-// function initDeleteButtonListener(){
-// let elem=document.getElementById('btn-delete-card')//.addEventListener('click', controller.deleteTodo)
-//     elem.map((el)=>el.addEventListener('click', controller.deleteTodo))
-
-// // console.log(Array.from(elem).map((element)=>element.id));
-
-// }
 
 
 function printApp(){
@@ -52,15 +43,10 @@ function render(){
     while (ren.firstChild) {
         ren.removeChild(ren.firstChild)
     }
-
+    // создание todo карт
     model.todos.map((todo) => createCard(todo))
 
-    // let buttonElements = document.getElementsByClassName('btn-delete-card')
-    // buttonElements.map(element => {
-    //     element.addEventListener('click', controller.deleteTodo)
-    // });
-
-    //повесим слушатель удаления кнопки 
+    //повесим слушатель удаления кнопки на все карты, сколько бы их не было
     let btnCollection = document.getElementsByClassName('btn-delete-card')
 
     for (let i = 0; i < btnCollection.length; i++) {

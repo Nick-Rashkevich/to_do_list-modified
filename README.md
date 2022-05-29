@@ -1,6 +1,6 @@
 # TODO List
 
-*The first educational project written in pure Javascript.*
+*The first educational project written on native Javascript.*
 
 # MVC
 
